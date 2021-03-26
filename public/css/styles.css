@@ -1,0 +1,31 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+  
+body {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    background-color: #e6e9f0;
+  }
+.carousel-item {
+    height: 40rem;
+  }
+.bgcolor-social {
+    background-color: #9fa8a3;
+  }
+div.card {
+    width: 18rem;
+    height: 30rem;
+    background-color: #c5d5cb;
+    color: #283018
+  }
+.card img {
+    height: 18rem;
+    border-radius: 50%;
+    border-style: solid;
+  }
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}

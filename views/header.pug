@@ -1,0 +1,51 @@
+div.d-flex.p-2.bgcolor-social
+  .p-2
+    a.p-2(href='https://fb.com/' target='_blank')
+      i.fab.fa-facebook
+  .p-2
+    a.p-2(href='https://www.instagram.com/' target='_blank')
+      i.fab.fa-instagram.fa-sm.fa-fw.me-2
+  .p-2
+    a.p-2(href='https://twitter.com/' target='_blank')
+      i.fab.fa-twitter.fa-sm.fa-fw.me-2
+  .ml-auto.p-2
+    a.p-2(href='#')
+      i.fas.fa-comment-dollar
+    a.p-2(href='#')
+      i.fas.fa-shopping-cart
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  a.navbar-brand.p-3(href='/') 
+    img(src='/image/logo.png' width='140' height='50' alt='Neighbour')
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item.dropdown.p-3
+        a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+          | City
+        .dropdown-menu(aria-labelledby='navbarDropdown')
+          a.dropdown-item(href='#') Vancouver
+          a.dropdown-item(href='#') Richmond
+
+      li.nav-item.dropdown.p-3
+        a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+          | Category
+        .dropdown-menu(aria-labelledby='navbarDropdown')
+          a.dropdown-item(href='#') Pastry
+          a.dropdown-item(href='#') Watch
+
+      li.nav-item.dropdown.p-3
+        a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+          | Dropdown
+        .dropdown-menu(aria-labelledby='navbarDropdown')
+          a.dropdown-item(href='#') Action
+          a.dropdown-item(href='#') Another action
+          .dropdown-divider
+          a.dropdown-item(href='#') Something else here
+      li.nav-item.p-3
+        a.nav-link.disabled(href='#') Disabled
+    form.form-inline.my-2.my-lg-0
+      input.form-control.mr-sm-2(type='search' placeholder='Search' aria-label='Search')
+      button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+

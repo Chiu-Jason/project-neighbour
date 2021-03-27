@@ -8,6 +8,9 @@ app.use(express.static('public'))
 app.get('/', (req, res) => {
     res.render('index', {});
 });
+app.get('/sell', (req, res)=>{
+    res.render('sell', {});
+});
 
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`)

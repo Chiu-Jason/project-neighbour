@@ -1,0 +1,48 @@
+extends ./layout.pug
+
+block header    
+    include ./header.pug
+
+block content
+    .container-fluid
+        .row
+            img.sell-top(src='/image/squares.jpeg' )
+            .top-left
+                h2 Selling has never been so easy!
+        .row.p-5
+            h2 List your product for free! 
+                form.p-5(action="" method="post" name="sell-form")
+                    .form-group
+                        .input-group.mb-3
+                            .input-group-prepend
+                                label.input-group-text(for='inputCity') City
+                            select#inputCity.custom-select
+                                option(selected='') Choose...
+                                option(value='1') Vancouver
+                                option(value='2') Richmond
+                        .input-group.mb-3
+                            .input-group-prepend
+                                label.input-group-text(for='inputCategory') Category
+                            select#inputCategory.custom-select
+                                option(selected='') Choose...
+                                option(value='1') Bakery
+                                option(value='2') Cheese
+                        .input-group.mb-3
+                            .input-group-prepend
+                                span#inputProductName.input-group-text Product Name
+                            input.form-control(type='text' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default')
+                        .input-group.mb-3
+                            .input-group-prepend
+                                span.input-group-text Product Description
+                            textarea.form-control(aria-label='With textarea')
+                        .input-group.mb-3
+                            .input-group-prepend
+                                span#inputGroupFileAddon01.input-group-text Upload Image
+                            .custom-file
+                                input#imageUpload.custom-file-input(type='file' aria-describedby='inputGroupFileAddon01')
+                                label.custom-file-label(for='imageUpload') Choose file
+                        button.btn.btn-primary.btn-lg(type="submit") Post
+
+
+block footer
+    include ./footer

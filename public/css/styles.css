@@ -29,3 +29,47 @@ div.card {
 h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+#foot {
+  background-color: #5a5c51;
+}
+#foot-bottom {
+  background-color: rgb(37, 46, 57);
+}
+.subscribe {
+  border-radius: 96px;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 1px 2px 4px 0 rgb(34 34 34 / 10%) inset;
+  width: 500px;
+  align-content: center;
+  padding-bottom: 50px;
+}
+.font-gold {
+  color: #e6af4b
+}
+.flex-col {
+  flex-direction: column;
+}
+.thanks {
+  font-family: roboto;
+  color: #b56969;
+}
+.about-links {
+  font-size: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.about-links a {
+  color: #eeeeee;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.about-links a:hover {
+  color: #eeeeee;
+  background-color: transparent;
+  font-size: 30px;
+}
+.box-shadow-double {
+  box-shadow:
+      0 0 0 10px hsl(138, 17%, 55%),
+      0 0 0 15px hsl(120, 24%, 68%);
+}

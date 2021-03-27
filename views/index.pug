@@ -22,35 +22,38 @@ block content
             span.carousel-control-next-icon(aria-hidden='true')
             span.sr-only Next
 
-    section.container.py-5
-        .row.text-center.py-3
-            .col-lg-6.m-auto
-                h1 Featured Products
-        .row
-            .col-12.col-md-4.mb-4
-                .card
-                    img.card-img-top.img-fluid(src='/image/croissant.webp' alt='...' height='18rem')
-                    .card-body
-                        h5.card-title Card title
-                        p.card-text
-                            | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
-                        a.btn.btn-primary(href='#') Details
-            .col-12.col-md-4.mb-4
-                .card
-                    img.card-img-top.rounded-circle.img-fluid.border(src='/image/cheese1.webp' alt='...' height='18rem')
-                    .card-body
-                        h5.card-title Card title
-                        p.card-text
-                            | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
-                        a.btn.btn-primary(href='#') Details
-            .col-12.col-md-4.mb-4
-                .card
-                    img.card-img-top.rounded-circle.img-fluid.border(src='/image/cake.webp' alt='...' height='18rem')
-                    .card-body
-                        h5.card-title Card title
-                        p.card-text
-                            | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
-                        a.btn.btn-primary(href='#') Details
+    #featuredProducts
+        .container.py-3
+            .row.text-center.py-3
+                .col-lg-6.m-auto
+                    h1 Featured Products
+            .row
+                .col-12.col-md-4.mb-4
+                    .card.box-shadow-double
+                        img.card-img-top.img-fluid(src='/image/croissant.webp' alt='...' height='18rem')
+                        .card-body.text-center
+                            h5.card-title Card title
+                            p.card-text.text-left
+                                | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
+                            a.btn.btn-primary(href='#') Details
+                .col-12.col-md-4.mb-4
+                    .card.box-shadow-double
+                        img.card-img-top.rounded-circle.img-fluid.border(src='/image/cheese1.webp' alt='...' height='18rem')
+                        .card-body.text-center
+                            h5.card-title Card title
+                            p.card-text.text-left
+                                | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
+                            a.btn.btn-primary(href='#') Details
+                .col-12.col-md-4.mb-4
+                    .card.box-shadow-double
+                        img.card-img-top.rounded-circle.img-fluid.border(src='/image/cake.webp' alt='...' height='18rem')
+                        .card-body.text-center
+                            h5.card-title Card title
+                            p.card-text.text-left
+                                | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
+                            a.btn.btn-primary(href='#') Details
+block footer
+    include ./footer.pug
 
 
 

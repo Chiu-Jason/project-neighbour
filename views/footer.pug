@@ -1,0 +1,33 @@
+section#foot
+    div.container
+        .row        
+            section.leave-comment.col.py-5
+                h4.font-gold Leave your Comments
+                br
+                form.flex-col(action='#' enctype='text/plain' name="comments")
+                    textarea(name='suggestion' cols='40' rows='12' placeholder="We would love to hear from you")
+                    button.btn.btn-outline-warning.btn-md.badge-pill(type='submit' name='comment' value='Submit!') Submit
+            section.col.py-5.pl-5.ml-5             
+                h4.text-light.border-bottom.pb-3.border-light ABOUT
+                ul.list-unstyled.text-light.footer-link-list
+                    li.about-links
+                        a(href='#') Neighbour Inc.
+                    li.about-links
+                        a(href='#') Policies
+                    li.about-links
+                        a(href='#') FAQs
+                    li.about-links
+                        a(href='#') Contact
+                    li.about-links
+                        a(href='#') Careers
+section#foot-bottom
+    .container
+        .row
+            .col
+                form.form-floating.subscribe.py-3(action="#")
+                    input#subscribe-Input.form-control.row(type='email' placeholder='Enter you Email' value='')
+                    button.btn.btn-info.btn-sm.row(type="submit") Subscribe
+            .col.thanks.py-3.d-flex.justify-content-end 
+                h4.pr-4.align-item-center Special Thanks to: 
+                a.align-item-center.h4(href="https://comit.org/" target="_blank") ComIT
+                

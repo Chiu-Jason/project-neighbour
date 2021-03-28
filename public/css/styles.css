@@ -15,7 +15,7 @@ body {
 .bgcolor-social {
     background-color: #9fa8a3;
   }
-div.card {
+div.feature {
     width: 18rem;
     height: 30rem;
     background-color: #c5d5cb;
@@ -92,4 +92,14 @@ h1 {
   font-family: cursive;
   color: #5e0231;
   text-shadow: rgb(145, 85, 85) 1px 1px;
+}
+div.all-products-card {
+  width: 18rem;
+  background-color: #c5d5cb;
+  color: #283018
+}
+.p-20 {
+  padding-left: 55px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }

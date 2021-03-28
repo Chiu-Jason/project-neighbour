@@ -1,0 +1,19 @@
+extends ./layout.pug
+
+block header
+    include ./header.pug
+block content
+    .container
+        .row
+            .card.mb-3(style='max-width: 540px;')
+                .row.no-gutters
+                    .col-md-4
+                    img.card-img(src=product.image alt=product.name)
+                    .col-md-8
+                    .card-body
+                        h5.card-title= product.name
+                        p.card-text=product.category
+                        p.card-text-left= product.description
+                        p.card-text=product.price
+                        p.card-text=product.city
+                        small.text-muted Last updated 3 mins ago

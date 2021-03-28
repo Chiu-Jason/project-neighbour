@@ -1,0 +1,21 @@
+extends ./layout.pug
+
+block header
+    include ./header.pug
+
+block content
+    .container-fluid
+        .row.d-flex.align-content-stretch.flex-wrap
+            each product in products
+                .card-group.p-20
+                    .card.all-products-card
+                        img.card-img-top.img-fluid(src='/image/product/' + product.image alt=product.name height='18rem')
+                        .card-body.text-center
+                            h5.card-title=product.name
+                            
+                        .card-footer.text-center
+                            p.card-text.text-center.font-weight-bold= product.price
+                            p.card-text.text-center=product.city
+                            a.btn.btn-primary(href='#') Details
+block footer
+    include ./footer.pug

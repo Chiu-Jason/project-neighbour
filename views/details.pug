@@ -14,7 +14,7 @@ block content
                             h4.card-title= product.name
                             p.card-text=product.category
                             p.card-text-left= product.description
-                            p.card-text=product.price
+                            p.card-text=`CA$ ${product.price}`
                             p.card-text=product.city
                             a.btn.btn-primary(href="#") Add to Cart
 block footer

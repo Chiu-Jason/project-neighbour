@@ -103,3 +103,15 @@ div.all-products-card {
   padding-top: 5px;
   padding-bottom: 5px;
 }
+div.product-detail {
+  background-color: #c5d5cb;
+  color: #283018;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+.products-top {
+  width: 100%;
+  height: 200px;
+  padding: 0px;
+  margin: 0px;
+  position: relative;
+}

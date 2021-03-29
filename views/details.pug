@@ -4,16 +4,18 @@ block header
     include ./header.pug
 block content
     .container
-        .row
-            .card.mb-3(style='max-width: 540px;')
+        .row.p-5
+            .card.mb-3.p-5.product-detail.rounded-pill
                 .row.no-gutters
                     .col-md-4
-                    img.card-img(src=product.image alt=product.name)
+                        img.card-img(src='/image/product/' + product.image alt=product.name)
                     .col-md-8
-                    .card-body
-                        h5.card-title= product.name
-                        p.card-text=product.category
-                        p.card-text-left= product.description
-                        p.card-text=product.price
-                        p.card-text=product.city
-                        small.text-muted Last updated 3 mins ago
+                        .card-body
+                            h4.card-title= product.name
+                            p.card-text=product.category
+                            p.card-text-left= product.description
+                            p.card-text=product.price
+                            p.card-text=product.city
+                            a.btn.btn-primary(href="#") Add to Cart
+block footer
+    include ./footer.pug

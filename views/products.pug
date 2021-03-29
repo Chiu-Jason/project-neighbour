@@ -5,7 +5,11 @@ block header
 
 block content
     .container-fluid
-        .row.d-flex.align-content-stretch.flex-wrap
+        .row
+            img.products-top(src='/image/wood.webp' )
+            .top-left
+                h2 Because you deserve delicious!
+        .row
             each product in products
                 .card-group.p-20
                     .card.all-products-card
@@ -16,6 +20,6 @@ block content
                         .card-footer.text-center
                             p.card-text.text-center.font-weight-bold= product.price
                             p.card-text.text-center=product.city
-                            a.btn.btn-primary(href='#') Details
+                            a.btn.btn-primary(href='/products/' + product.id) Details
 block footer
     include ./footer.pug

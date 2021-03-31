@@ -28,30 +28,16 @@ block content
                 .col-lg-6.m-auto
                     h1 Featured Products
             .row
-                .col-12.col-md-4.mb-4
-                    .card.box-shadow-double.feature
-                        img.card-img-top.img-fluid(src='/image/product/croissant.webp' alt='...' height='18rem')
-                        .card-body.text-center
-                            h5.card-title Card title
-                            p.card-text.text-left
-                                | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
-                            a.btn.btn-primary(href='#') Details
-                .col-12.col-md-4.mb-4
-                    .card.box-shadow-double.feature
-                        img.card-img-top.rounded-circle.img-fluid.border(src='/image/product/cheese1.webp' alt='...' height='18rem')
-                        .card-body.text-center
-                            h5.card-title Card title
-                            p.card-text.text-left
-                                | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
-                            a.btn.btn-primary(href='#') Details
-                .col-12.col-md-4.mb-4
-                    .card.box-shadow-double.feature
-                        img.card-img-top.rounded-circle.img-fluid.border(src='/image/product/cake.webp' alt='...' height='18rem')
-                        .card-body.text-center
-                            h5.card-title Card title
-                            p.card-text.text-left
-                                | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
-                            a.btn.btn-primary(href='#') Details
+                each product in featuredProducts
+                    .col-12.col-md-4.mb-4
+                        .card.box-shadow-double.feature
+                            img.card-img-top.img-fluid(src='/image/product/' + product.image alt='product.name' height='18rem')
+                            .card-body.text-center
+                                h5.card-title= product.name
+                                p.card-text.text-center= `CA$ ${product.price}`
+                                p.card-text.text-center= product.city
+                                a.btn.btn-primary(href='/products/' + product.id) Details
+                
 block footer
     include ./footer.pug
 

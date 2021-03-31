@@ -24,7 +24,12 @@ const products = [
 ];
 
 app.get('/', (req, res) => {
-    res.render('index', {});
+    const featuredProducts = [];
+    for (i=0; i < 3; i++){
+    let randomProduct = products[Math.floor(Math.random() * products.length)];
+    featuredProducts.push(randomProduct)
+};
+    res.render('index', { featuredProducts: featuredProducts});
 });
 app.get('/sell', (req, res)=>{
     res.render('sell', {});
@@ -51,7 +56,6 @@ app.post('/sell', urlencodedParser, (req, res) => {
     const item = req.body;
     item.id = newId
     products.unshift(item);
-    console.log(products)
     res.redirect('/products');
 })
 app.listen(port, () => {

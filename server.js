@@ -20,7 +20,6 @@ const products = [
     {id: 10, city: "Vancouver", category: "Cheese", name: "Buffalo Mozarella", description: "Buffalo mozzarella is creamier, softer, and far more flavorful than the cow-milk stuff, with a tanginess and depth of flavor that's all its own.", price: 18, image: "buffalo-moza.webp"},
     {id: 11, city: "Richmond", category: "Bakery", name: "Rainbow Cake", description: "Layers of colourful moist vanilla buttermilk cake and easy buttercream frosting. ", price: 85, image: "rainbow-cake.webp"},
     {id: 12, city: "Richmond", category: "Bakery", name: "Chocolate Cake", description: "Rich and decadent chocolatey goodness", price: 65, image: "choco-cake.webp"},
-
 ];
 
 app.get('/', (req, res) => {

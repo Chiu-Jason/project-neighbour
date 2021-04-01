@@ -7,6 +7,10 @@ const port = 3000
 app.set('view engine', 'pug')
 app.use(express.static('public'))
 
+const cart = []
+
+
+
 const products = [
     {id: 1, city: "Vancouver", category: "Cheese", name: "Asiago", description: "Asiago cheese is an Italian cow's milk cheese that has a flavor reminiscent to Parmesan but is a bit nuttier and creamier.", price: 45, image: "cheese1.webp"},
     {id: 2, city: "Richmond", category: "Bakery", name: "Cheese Croissant", description: "Buttery, flaky and cheesy delicate viennoiseries", price: 7, image: "croissant.webp"},
@@ -29,27 +33,27 @@ app.get('/', (req, res) => {
     let randomProduct = products[Math.floor(Math.random() * products.length)];
     featuredProducts.push(randomProduct)
 };
-    res.render('index', { featuredProducts: featuredProducts});
+    res.render('index', { featuredProducts: featuredProducts, cart});
 });
 app.get('/sell', (req, res)=>{
-    res.render('sell', {});
+    res.render('sell', {cart});
 });
 app.get('/products/', (req, res)=>{
-    res.render('products', { products: products})
+    res.render('products', { products: products, cart})
 });
 app.get('/products/:id', (req, res) => {
     const product = products.find(p => p.id == req.params.id)
-    res.render('details', { product: product })
+    res.render('details', { product: product, cart })
 })
 app.get('/products/city/:city', (req, res)=>{
     let selectedProducts = products.filter(p => p.city == req.params.city)
     console.log(selectedProducts)
-    res.render('products', { products: selectedProducts });
+    res.render('products', { products: selectedProducts, cart });
 });
 app.get('/products/category/:category', (req, res)=>{
     let selectedProducts = products.filter(p => p.category == req.params.category)
     console.log(selectedProducts)
-    res.render('products', { products: selectedProducts });
+    res.render('products', { products: selectedProducts, cart });
 });
 app.post('/sell', urlencodedParser, (req, res) => {
     const newId = products.length + 1
@@ -57,6 +61,25 @@ app.post('/sell', urlencodedParser, (req, res) => {
     item.id = newId
     products.unshift(item);
     res.redirect('/products');
+})
+app.get('/cart/', (req, res)=>{
+    const subtotal = cart.reduce((acc, curr)=> acc + curr.price,0);
+    let tax = subtotal * 0.12;
+    parseFloat(tax).toFixed(2);
+    let total = subtotal + tax;
+    parseFloat(total).toFixed(2);
+    res.render('cart', { cart: cart, subtotal, tax, total})
+})
+app.get('/cart/:id', (req, res) => {
+    const item = products.find(p => p.id == req.params.id)
+    cart.push(item); 
+    console.log(cart)
+    res.redirect('/products');
+})
+app.get('/cart/delete/:id', (req, res)=>{
+    const itemIndex = cart.findIndex(p => p.id == req.params.id)
+    cart.splice(itemIndex, 1);
+    res.redirect('/cart/');
 })
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`)

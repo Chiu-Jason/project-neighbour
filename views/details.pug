@@ -16,6 +16,6 @@ block content
                             p.card-text-left= product.description
                             p.card-text=`CA$ ${product.price}`
                             p.card-text=product.city
-                            a.btn.btn-primary(href="#") Add to Cart
+                            a.btn.btn-primary(href='/cart/' + product.id) Add to Cart
 block footer
     include ./footer.pug

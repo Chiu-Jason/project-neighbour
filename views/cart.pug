@@ -1,0 +1,44 @@
+extends ./layout.pug
+
+block header
+    include ./header.pug
+
+block content
+    .container-fluid
+        .row
+            img.products-top(src='/image/wood.webp' )
+            .top-left
+                h2#deliciousEffect You've got good taste!
+        .container
+            .row.d-flex
+                ul.list-group.list-group-flush
+                    each product in cart
+                        li.list-group-item.d-flex.d-inline
+                            .col.mr-3
+                                img(src='/image/product/' + product.image width="100px" height="100px" )
+                            .col-4.mr-3.align-self-center
+                                h5.mb-1= product.name
+                            .col-2.mr-2.align-self-center
+                                small.text-muted= product.city
+                            .col-2.mr-2.align-self-center
+                                p.mb-1= `CA$ ${product.price}`
+                            .col-2.p-0.align-self-center
+                                a.btn.btn-danger.btn-sm(href='/cart/delete/:id') Remove
+                .card(style='width: 22rem; height: 16rem').ml-auto.mt-4.mb-4
+                    .card-header.h5
+                        i.fas.fa-shopping-cart.fa-md
+                            | ORDER SUMMARY
+                    ul.list-group.list-group-flush
+                        li.list-group-item.d-flex.d-inline
+                            p Merchandise Subtotal: 
+                            p.ml-auto= subtotal
+                        li.list-group-item.d-flex.d-inline
+                            p Tax:
+                            p.ml-auto= tax
+                        li.list-group-item.d-flex.d-inline.font-weight-bold
+                            p Total:
+                            p.ml-auto= total
+
+
+block footer
+    include ./footer.pug

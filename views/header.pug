@@ -1,19 +1,19 @@
 div.d-flex.bgcolor-social
   .p-2
-    a.p-2(href='https://fb.com/' target='_blank')
+    a.p-2.blackish(href='https://fb.com/' target='_blank')
       i.fab.fa-facebook.fa-lg
   .p-2
-    a.p-2(href='https://www.instagram.com/' target='_blank')
+    a.p-2.blackish(href='https://www.instagram.com/' target='_blank')
       i.fab.fa-instagram.fa-lg.fa-fw.me-2
   .p-2
-    a.p-2(href='https://twitter.com/' target='_blank')
+    a.p-2.blackish(href='https://twitter.com/' target='_blank')
       i.fab.fa-twitter.fa-lg.fa-fw.me-2
   .ml-auto.p-2
-    a.p-2(href='/sell/')
+    a.p-2.pr-3.blackish(href='/sell/') 
       i.fas.fa-comment-dollar.fa-lg
-    a.p-2(href='#')
+    a#cart-link.p-2.blackish.text-decoration-none(href='/cart/')= cart.length
       i.fas.fa-shopping-cart.fa-lg
-
+      
 nav.navbar.navbar-expand-lg.navbar-light.bg-light
   a.navbar-brand.p-3(href='/') 
     img(src='/image/logo.png' width='140' height='50' alt='Neighbour')

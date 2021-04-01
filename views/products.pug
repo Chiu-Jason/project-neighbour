@@ -8,7 +8,7 @@ block content
         .row
             img.products-top(src='/image/wood.webp' )
             .top-left
-                h2 Because you deserve delicious!
+                h2#deliciousEffect Because you deserve delicious!
         .row
             each product in products
                 .card-group.p-20
@@ -20,6 +20,7 @@ block content
                         .card-footer.text-center
                             p.card-text.text-center.font-weight-bold=`CA$ ${product.price}`
                             p.card-text.text-center=product.city
-                            a.btn.btn-primary(href='/products/' + product.id) Details
+                            a.btn.btn-primary.mr-3(href='/products/' + product.id) Details
+                            a.btn.btn-primary(href='/cart/' + product.id) Add to Cart
 block footer
     include ./footer.pug

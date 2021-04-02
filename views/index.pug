@@ -36,7 +36,7 @@ block content
                                 h5.card-title= product.name
                                 p.card-text.text-center= `CA$ ${product.price}`
                                 p.card-text.text-center= product.city
-                                a.btn.btn-primary(href='/products/' + product.id) Details
+                                a.btn.btn-primary(href='/products/' + product._id) Details
                 
 block footer
     include ./footer.pug

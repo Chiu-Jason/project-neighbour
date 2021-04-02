@@ -9,7 +9,7 @@ app.use(express.static('public'))
 
 const mongoose = require('mongoose')
 const mongoDB = 'mongodb://127.0.0.1:27017/neighbour'
-mongoose.connect(mongoDB, { useUnifiedTopology: true });
+mongoose.connect(mongoDB, { useNewUrlParser: true});
 const db = mongoose.connection
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
@@ -26,8 +26,8 @@ const productModel = mongoose.model('productModel', productsSchema);
 const cart = []
 
 app.get('/', async (req, res) => {
-    const featuredProducts = await productModel.aggregate([{ $sample: { size: 3 } }]).exec();
-    console.log(productModel)
+    const featuredProducts = await productModel.aggregate([{ $sample: { size: 3 } }])
+    console.log('featured products:', featuredProducts)
     res.render('index', { featuredProducts: featuredProducts, cart});
 });
 app.get('/sell', (req, res)=>{
@@ -40,7 +40,8 @@ app.get('/products/', async (req, res)=>{
 });
 app.get('/products/:id', async (req, res) => {
     const selectedId = req.params.id
-    const product = await productModel.findOne({ "_id": selectedId }).exec();
+    const product = await productModel.findOne({ "_id": selectedId });
+    console.log(product)
     res.render('details', { product: product, cart })
 })
 app.get('/products/city/:city', async (req, res)=>{

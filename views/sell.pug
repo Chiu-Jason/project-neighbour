@@ -11,7 +11,7 @@ block content
                 h2 Selling has never been so easy!
         .row.p-5
             h2 List your product for free! 
-                form.p-5(action="/sell" method="post" name="sell-form")
+                form.p-5(action="/sell" method="post" name="sell-form" enctype="multipart/form-data")
                     .form-group
                         input(type="hidden" name="id")
                         .input-group.mb-3

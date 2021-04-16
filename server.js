@@ -25,9 +25,17 @@ const upload = multer({storage: storage})
 
 const mongoose = require('mongoose')
 const mongoDB = process.env.MONGODB_URL;
-mongoose.connect(mongoDB, { useNewUrlParser: true});
-const db = mongoose.connection
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+mongoose
+  .connect(mongoDB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() =>
+    app.listen(port, () =>
+      console.log(`Connection is established and running on port: ${PORT}`)
+    )
+  )
+  .catch((err) => console.log(err.message));
 
 
 const productModel = require('./models/product')

@@ -9,11 +9,12 @@ div.d-flex.bgcolor-social
     a.p-2.blackish(href='https://twitter.com/' target='_blank')
       i.fab.fa-twitter.fa-lg.fa-fw.me-2
   .ml-auto.p-2
-    a.p-2.pr-3.blackish(href='/sell/') 
-      i.fas.fa-comment-dollar.fa-lg
+    button.btn.btn-outline-dark.p-2.mr-3.blackish.bgcolor-social(type='button' data-toggle='modal' data-target='#loginModal') Sign in
+    a.p-2.pr-3.blackish.text-decoration-none(href='/sell/') Sell 
+      i.fas.fa-comment-dollar.fa-lg 
     a#cart-link.p-2.blackish.text-decoration-none(href='/cart/')= cart.length
       i.fas.fa-shopping-cart.fa-lg
-      
+
 nav.navbar.navbar-expand-lg.navbar-light.bg-light
   a.navbar-brand.p-3(href='/') 
     img(src='/image/logo.png' width='140' height='50' alt='Neighbour')
@@ -39,3 +40,45 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       input.form-control.mr-sm-2(type='search' placeholder='Search' aria-label='Search')
       button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
 
+#loginModal.modal.fade(tabindex='-1' aria-labelledby='loginModalLabel' aria-hidden='true')
+  .modal-dialog.modal-md
+    .modal-content
+      .modal-header.bgcolor-social
+        .p-1
+          h5#loginModalLabel.modal-title.blackish Sign in
+        .ml-auto.p-2
+        button.btn.btn-secondary.mr-4(type='button' data-dismiss='modal' data-toggle='modal' data-target='#registerModal') Register
+        button.btn-danger.btn-close(type='button' data-dismiss='modal' aria-label='Close') X
+      .modal-body
+        form
+          .mb-3
+            label.form-label(for='userEmail') Email address
+            input#userEmail.form-control(type='email' required='required')
+          .mb-3
+            label.form-label(for='userPassword') Password
+            input#userPassword.form-control(type='password' required='required')
+          button.btn.btn-warning(type='submit') Sign in
+      .modal-footer.bg-light
+        p By clicking Sign in, you agree to Neighbour's Terms of Use and Privacy Policy. Neighbour may send you communications. We'll never post without your permission.
+        
+
+#registerModal.modal.fade(tabindex='-1' aria-labelledby='registerModalLabel' aria-hidden='true')
+  .modal-dialog.modal-md
+    .modal-content
+      .modal-header.bgcolor-social
+        h5#registerModalLabel.modal-title.blackish Register
+        button.btn-danger.btn-close(type='button' data-dismiss='modal' aria-label='Close') X
+      .modal-body
+        form
+          .mb-3
+            label.form-label(for='userFirstName') First Name
+            input#userFirstName.form-control(type='text' required='required')
+          .mb-3
+            label.form-label(for='userEmail') Email address
+            input#userEmail.form-control(type='email' required='required')
+          .mb-3
+            label.form-label(for='userPassword') Password
+            input#userPassword.form-control(type='password' required='required')
+          button.btn.btn-warning(type='submit') Register
+      .modal-footer.bg-light
+        p By clicking Register, you agree to Neighbour's Terms of Use and Privacy Policy. Neighbour may send you communications. We'll never post without your permission.

@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
-const port = process.env.Port || 3000
+const port = process.env.PORT || 3000
 global.cart = []
 
 app.set('view engine', 'pug')

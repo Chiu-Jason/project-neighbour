@@ -74,6 +74,4 @@ app.use(function(req, res, next){
 app.use(function(err, req, res, next){
     res.status(404 || 500).render('error',{cart});
 });
-app.listen(port, () => {
-    console.log(`Server is listening on port ${port}`)
-})
+

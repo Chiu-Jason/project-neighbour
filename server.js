@@ -32,7 +32,7 @@ mongoose
   })
   .then(() =>
     app.listen(port, () =>
-      console.log(`Connection is established and running on port: ${PORT}`)
+      console.log(`Connection is established and running on port: ${port}`)
     )
   )
   .catch((err) => console.log(err.message));

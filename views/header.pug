@@ -1,13 +1,16 @@
 div.d-flex.bgcolor-social
-  .p-2
-    a.p-2.blackish(href='https://fb.com/' target='_blank')
+  .mr-auto.p-2.align-self-center
+    a.p-2.mr-3.blackish(href='https://fb.com/' target='_blank')
       i.fab.fa-facebook.fa-lg
-  .p-2
-    a.p-2.blackish(href='https://www.instagram.com/' target='_blank')
+  
+    a.p-2.mr-3.blackish(href='https://www.instagram.com/' target='_blank')
       i.fab.fa-instagram.fa-lg.fa-fw.me-2
-  .p-2
+  
     a.p-2.blackish(href='https://twitter.com/' target='_blank')
       i.fab.fa-twitter.fa-lg.fa-fw.me-2
+  .mx-auto.p-2.align-self-center
+    -if(name !== undefined)
+        p= `Hi ${name}`
   .ml-auto.p-2
     button.btn.btn-outline-dark.p-2.mr-3.blackish.bgcolor-social(type='button' data-toggle='modal' data-target='#loginModal') Sign in
     a.p-2.pr-3.blackish.text-decoration-none(href='/sell/') Sell 
@@ -50,13 +53,13 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
         button.btn.btn-secondary.mr-4(type='button' data-dismiss='modal' data-toggle='modal' data-target='#registerModal') Register
         button.btn-danger.btn-close(type='button' data-dismiss='modal' aria-label='Close') X
       .modal-body
-        form
+        form(action='/user/login' method='post')
           .mb-3
-            label.form-label(for='userEmail') Email address
-            input#userEmail.form-control(type='email' required='required')
+            label.form-label(for='email') Email address
+            input#email.form-control(type='email' name='email' required='required')
           .mb-3
-            label.form-label(for='userPassword') Password
-            input#userPassword.form-control(type='password' required='required')
+            label.form-label(for='password') Password
+            input#password.form-control(type='password' name='password' required='required')
           button.btn.btn-warning(type='submit') Sign in
       .modal-footer.bg-light
         p By clicking Sign in, you agree to Neighbour's Terms of Use and Privacy Policy. Neighbour may send you communications. We'll never post without your permission.
@@ -69,16 +72,16 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
         h5#registerModalLabel.modal-title.blackish Register
         button.btn-danger.btn-close(type='button' data-dismiss='modal' aria-label='Close') X
       .modal-body
-        form
+        form(action='/user/register' method='post')
           .mb-3
-            label.form-label(for='userFirstName') First Name
-            input#userFirstName.form-control(type='text' required='required')
+            label.form-label(for='userName') First Name
+            input.form-control(type='text' name='userName' id='userName' required='required')
           .mb-3
-            label.form-label(for='userEmail') Email address
-            input#userEmail.form-control(type='email' required='required')
+            label.form-label(for='email') Email address
+            input.form-control(type='email' name='email' id='email' required='required')
           .mb-3
-            label.form-label(for='userPassword') Password
-            input#userPassword.form-control(type='password' required='required')
+            label.form-label(for='password') Password
+            input.form-control(type='password' name='password' id='password' required='required')
           button.btn.btn-warning(type='submit') Register
       .modal-footer.bg-light
         p By clicking Register, you agree to Neighbour's Terms of Use and Privacy Policy. Neighbour may send you communications. We'll never post without your permission.

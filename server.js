@@ -1,28 +1,21 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
-const bodyParser = require('body-parser');
-const urlencodedParser = bodyParser.urlencoded({ extended: false });
+const session = require('express-session');
+const passport = require('passport');
+
 const port = process.env.PORT || 3000
 global.cart = []
 
-app.set('view engine', 'pug')
-app.use(express.static('public'))
-
-const productRoutes = require('./routes/productRoute.js')
+const productRoutes = require('./routes/productRoute')
 const cartRoutes = require('./routes/cartRoute')
+const userRoutes = require('./routes/userRoute')
+const sellRoutes = require('./routes/sellRoute')
 
-const multer = require('multer')
-const storage = multer.diskStorage({
-    destination: function(req, file, cb){
-        cb(null, 'public/image/product')
-    },
-    filename: function(req, file, cb){
-        cb(null, req.body.name.toLowerCase() + '.jpeg')
-    }
-})
-const upload = multer({storage: storage})
 
+const productModel = require('./models/product')
+
+//mongoose
 const mongoose = require('mongoose')
 const mongoDB = process.env.MONGODB_URL;
 mongoose
@@ -37,41 +30,42 @@ mongoose
   )
   .catch((err) => console.log(err.message));
 
+app.set('view engine', 'pug')
+app.use(express.static('public'))
 
-const productModel = require('./models/product')
+app.use(express.urlencoded({ extended: false }));
 
-
-app.get('/', async (req, res) => {
-    const featuredProducts = await productModel.aggregate([{ $sample: { size: 3 } }])
-    res.render('index', { featuredProducts: featuredProducts, cart});
-});
-app.get('/sell', (req, res)=>{
-    res.render('sell', {cart});
-});
-
-app.post('/sell', upload.single('image'), async (req, res) => {
-    const newItem = {
-        _id: new mongoose.Types.ObjectId,
-        city: req.body.city,
-        category: req.body.category,
-        name: req.body.name,
-        price: req.body.price,
-        description: req.body.description,
-        image: req.file.filename
-    }
-    await productModel.create(newItem)
-    res.redirect('/products');
-})
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+require ('./middleware/passport')(passport);
 
 app.use('/products', productRoutes)
 app.use('/cart', cartRoutes)
+app.use('/user', userRoutes)
+app.use('/sell', sellRoutes)
 
-app.use(function(req, res, next){
-    const err = new Error('Not Found');
-    err.status = 404;
-    next('err');
+app.get('/', async (req, res) => {
+  const featuredProducts = await productModel.aggregate([{ $sample: { size: 3 } }])
+  res.render('index', { featuredProducts: featuredProducts, cart});
 });
-app.use(function(err, req, res, next){
-    res.status(404 || 500).render('error',{cart});
+
+app.get('/error', (req, res) => {
+  res.render('error', {cart});
+});
+
+app.use(function (req, res, next) {
+  const err = new Error('Not Found');
+  err.status = 404;
+  next('err');
+});
+app.use(function (err, req, res, next) {
+  console.log(err)
+  const errorMessage = 'Not Found'
+  res.status(404 || 500).render('error', { cart, errorMessage });
 });
 

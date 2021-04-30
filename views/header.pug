@@ -56,10 +56,10 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
         form(action='/user/login' method='post')
           .mb-3
             label.form-label(for='email') Email address
-            input#email.form-control(type='email' name='email' required='required')
+            input#loginEmail.form-control(type='email' name='email' required='required')
           .mb-3
             label.form-label(for='password') Password
-            input#password.form-control(type='password' name='password' required='required')
+            input#loginPassword.form-control(type='password' name='password' required='required')
           button.btn.btn-warning(type='submit') Sign in
       .modal-footer.bg-light
         p By clicking Sign in, you agree to Neighbour's Terms of Use and Privacy Policy. Neighbour may send you communications. We'll never post without your permission.

@@ -19,6 +19,11 @@ const storage = multer.diskStorage({
 })
 const upload = multer({storage: storage})
 
+route.get('*', function(req, res, next) {
+    res.locals.user = req.user || null;
+    next();
+  });
+  
 route.get('/', (req, res)=>{
     res.render('sell', {cart});
 });

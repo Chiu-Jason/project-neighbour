@@ -9,10 +9,13 @@ div.d-flex.bgcolor-social
     a.p-2.blackish(href='https://twitter.com/' target='_blank')
       i.fab.fa-twitter.fa-lg.fa-fw.me-2
   .mx-auto.p-2.align-self-center
-    -if(name !== undefined)
-        p= `Hi ${name}`
+    -if(user)
+        h5.blackish= `Hi   ${user.name}`
   .ml-auto.p-2
-    button.btn.btn-outline-dark.p-2.mr-3.blackish.bgcolor-social(type='button' data-toggle='modal' data-target='#loginModal') Sign in
+    -if(user)
+      a.p-2.mr-3.blackish.text-decoration-none(href='/user/logout') Logout
+    -else
+      button.btn.btn-outline-dark.p-2.mr-3.blackish.bgcolor-social(type='button' data-toggle='modal' data-target='#loginModal') Sign in
     a.p-2.pr-3.blackish.text-decoration-none(href='/sell/') Sell 
       i.fas.fa-comment-dollar.fa-lg 
     a#cart-link.p-2.blackish.text-decoration-none(href='/cart/')= cart.length

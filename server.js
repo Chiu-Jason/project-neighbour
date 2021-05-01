@@ -33,6 +33,7 @@ mongoose
 app.set('view engine', 'pug')
 app.use(express.static('public'))
 
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(session({
@@ -49,8 +50,14 @@ app.use('/cart', cartRoutes)
 app.use('/user', userRoutes)
 app.use('/sell', sellRoutes)
 
+app.get('*', function(req, res, next) {
+  res.locals.user = req.user || null;
+  next();
+});
+
 app.get('/', async (req, res) => {
   const featuredProducts = await productModel.aggregate([{ $sample: { size: 3 } }])
+  console.log(req.session)
   res.render('index', { featuredProducts: featuredProducts, cart});
 });
 

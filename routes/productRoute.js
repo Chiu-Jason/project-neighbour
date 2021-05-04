@@ -3,10 +3,6 @@ const route = express.Router();
 
 const productModel = require('../models/product')
 
-route.get('*', function(req, res, next) {
-    res.locals.user = req.user || null;
-    next();
-  });
 route.get('/', async (req, res) => {
     const products = await productModel.find().exec();
     res.render('products', { products: products, cart })

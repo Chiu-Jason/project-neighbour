@@ -45,15 +45,15 @@ app.use(passport.initialize())
 app.use(passport.session())
 require ('./middleware/passport')(passport);
 
+app.use(function(req, res, next) {
+  res.locals.user = req.user || null;
+  next();
+});
+
 app.use('/products', productRoutes)
 app.use('/cart', cartRoutes)
 app.use('/user', userRoutes)
 app.use('/sell', sellRoutes)
-
-app.get('*', function(req, res, next) {
-  res.locals.user = req.user || null;
-  next();
-});
 
 app.get('/', async (req, res) => {
   const featuredProducts = await productModel.aggregate([{ $sample: { size: 3 } }])
@@ -62,7 +62,7 @@ app.get('/', async (req, res) => {
 });
 
 app.get('/error', (req, res) => {
-  res.render('error', {cart});
+  res.render('error', {cart, errorMessage});
 });
 
 app.use(function (req, res, next) {

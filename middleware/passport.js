@@ -10,7 +10,7 @@ module.exports = function (passport) {
             .then(user => {
                 if (!user) {
                     console.log('User does not exist')
-                    return done(null, false, { message: 'Email or Password is incorrect' })
+                    return done(null, false, { errorMessage: 'Email or Password is incorrect' })
                 }
                 bcrypt.compare(password, user.password, async (err, isMatch) => {
                     if (err) {
@@ -22,7 +22,7 @@ module.exports = function (passport) {
                         return done(null, user);
                     }
                     else {
-                        return done(null, false, { message: 'Email or Password is incorrect' })
+                        return done(null, false, { errorMessage: 'Email or Password is incorrect' })
                     }
                 })
             })
@@ -35,7 +35,6 @@ module.exports = function (passport) {
     passport.serializeUser((user, done) => done(null, user.id))
     passport.deserializeUser((id, done) => {
         userModel.findById(id, function (err, user) {
-            console.log(user.name)
             done(err, user);
         })
     })

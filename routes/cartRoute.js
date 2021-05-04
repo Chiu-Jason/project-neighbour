@@ -2,10 +2,6 @@ const express = require('express');
 const route = express.Router();
 const productModel = require('../models/product')
 
-route.get('*', function(req, res, next) {
-    res.locals.user = req.user || null;
-    next();
-  });
 route.get('/', (req, res)=>{
     const subtotal = cart.reduce((acc, curr)=> acc + curr.price,0);
     let tax = subtotal * 0.12;

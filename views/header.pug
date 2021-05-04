@@ -13,7 +13,7 @@ div.d-flex.bgcolor-social
         h5.blackish= `Hi   ${user.name}`
   .ml-auto.p-2
     -if(user)
-      a.p-2.mr-3.blackish.text-decoration-none(href='/user/logout') Logout
+      a.btn.btn-outline-dark.p-2.mr-3.blackish.text-decoration-none.bgcolor-social(href='/user/logout') Logout
     -else
       button.btn.btn-outline-dark.p-2.mr-3.blackish.bgcolor-social(type='button' data-toggle='modal' data-target='#loginModal') Sign in
     a.p-2.pr-3.blackish.text-decoration-none(href='/sell/') Sell 
